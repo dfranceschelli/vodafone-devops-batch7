@@ -15,7 +15,6 @@ terraform {
 }
 
 
-
 provider "aws" {
 
   # Configuration options
@@ -70,8 +69,4 @@ resource "aws_instance" "jenkins" {
 resource "aws_network_interface_sg_attachment" "sg_attachment1" {
   security_group_id = aws_security_group.jenkins-sg.id
   network_interface_id = aws_instance.jenkins.primary_network_interface_id
-}
-
-output "private_ip" {
-  value = aws_instance.jenkins.private_ip
 }
